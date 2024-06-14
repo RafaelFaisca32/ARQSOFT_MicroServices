@@ -1,0 +1,32 @@
+version: "3"
+
+
+services:
+  userdb:
+    container_name: userdb
+    image: mysql
+    restart: on-failure
+    ports:
+      - "5001:3306"
+    environment:
+      - MYSQL_USER=admin
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - MYSQL_PASSWORD=@Dmin123
+      - MYSQL_DATABASE=users
+    command: mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8
+
+
+  user_app:
+    container_name: user
+    build: ./Dockerfile
+    depends_on:
+      - userdb
+    environment:
+      - SPRING.DATASOURCE.URL=jdbc:mysql://userdb:3306/users?autoreconnect=true&allowPublicKeyRetrieval=true&useSSL=false
+      - SPRING.DATASOURCE.USERNAME=admin
+      - SPRING.DATASOURCE.PASSWORD=@Dmin123
+    ports:
+      - "5000:8080"
+    restart: on-failure
+    volumes:
+      - ./dockerfiles/user/:/home/app

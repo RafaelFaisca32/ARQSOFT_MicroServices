@@ -1,0 +1,58 @@
+type Query{
+    listAllShops : [ShopDTO]
+    listShop(id : ID!):ShopDTO
+}
+
+type Mutation{
+    createShop (
+        shop: ShopInput!
+    ) : ShopDTO
+}
+
+input ShopInput{
+    mondayOpening : Int!
+    mondayClosing : Int!
+    tuesdayOpening : Int!
+    tuesdayClosing : Int!
+    wednesdayOpening : Int!
+    wednesdayClosing : Int!
+    thursdayOpening : Int!
+    thursdayClosing : Int!
+    fridayOpening : Int!
+    fridayClosing : Int!
+    saturdayOpening : Int!
+    saturdayClosing : Int!
+    sundayOpening : Int!
+    sundayClosing : Int!
+    name : String!
+    managerName : String
+    managerId : ID
+}
+
+
+
+type ShopDTO {
+    id : ID!
+    mondayOpening : Int!
+    mondayClosing : Int!
+    tuesdayOpening : Int!
+    tuesdayClosing : Int!
+    wednesdayOpening : Int!
+    wednesdayClosing : Int!
+    thursdayOpening : Int!
+    thursdayClosing : Int!
+    fridayOpening : Int!
+    fridayClosing : Int!
+    saturdayOpening : Int!
+    saturdayClosing : Int!
+    sundayOpening : Int!
+    sundayClosing : Int!
+    name : String!
+    managerName : String
+    managerId : ID
+}
+
+schema {
+    query: Query
+    mutation: Mutation
+}

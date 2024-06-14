@@ -1,0 +1,38 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Mutation{
+    register (
+        userDTO: CreatingUserDto!
+    ) : GraphQLUsersDTO
+    login (
+        userDTO: UserDto!
+    ) : GraphQLUsersDTO
+}
+
+type Query{
+    getAllUsers : [GraphQLUsersDTO!]!,
+    health: String!
+}
+
+input UserDto{
+    email: String!
+    password: String!
+}
+
+input CreatingUserDto{
+    email: String!
+    password: String!
+    taxIdentification: String!
+    username: String!
+}
+
+type GraphQLUsersDTO {
+    id: ID!
+    email: String!
+    password: String!
+    taxIdentification: String!
+    username: String!
+}

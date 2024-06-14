@@ -1,0 +1,29 @@
+version: "3"
+services:
+  promotionmicroservice:
+    container_name: promotion
+    build: .
+    depends_on:
+      - promotiondb
+    environment:
+      - SPRING.DATASOURCE.URL=jdbc:mysql://promotiondb:3306/promotions?autoreconnect=true&allowPublicKeyRetrieval=true&useSSL=false
+      - SPRING.DATASOURCE.USERNAME=admin
+      - SPRING.DATASOURCE.PASSWORD=@Dmin123
+      - SPRING.JPA.PROPERTIES.HIBERNATE.DIALECT=org.hibernate.dialect.MySQL8Dialect
+    ports:
+      - "5004:8080"
+
+  promotiondb:
+    image: mysql
+    container_name: promotiondb
+    restart: on-failure
+    volumes:
+      - /home/ARQSOFT/promotion/db/:/var/lib/mysql
+    ports:
+      - "5003:3306"
+    environment:
+      - MYSQL_USER=admin
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - MYSQL_PASSWORD=@Dmin123
+      - MYSQL_DATABASE=promotions
+    command: mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8

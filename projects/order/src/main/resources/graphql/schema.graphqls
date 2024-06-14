@@ -1,0 +1,43 @@
+type Query{
+    listAllOrders : [OrderDTO]!
+}
+
+type Mutation{
+    createOrder (
+        order: OrderInput!
+    ) : CreateOrderDTO
+}
+
+input OrderInput{
+    shopid : Float!
+    productEntries : [ProductEntry!]!
+    promotion : Float!
+}
+
+type OrderDTO {
+    id: ID!
+    shopid : Float!
+    productEntries : [ProductEntry2!]!
+    price : Float!
+}
+
+type CreateOrderDTO {
+    shopid : Float!
+    productEntries : [ProductEntry2!]!
+    promotion : Float!
+}
+
+input ProductEntry {
+    sandwichPrice: Float!
+    quantity: Int!
+}
+
+type ProductEntry2 {
+    sandwichPrice: Float!
+    quantity: Int!
+}
+
+schema {
+    query: Query
+    mutation: Mutation
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<ns2:softwareSystem xmlns:ns2="http://www.hello2morrow.com/sonargraph/core" id="e2c006b9274f7c39dcd3889383073639" version="12.3.0.766">
+	<description></description>
+	<module xmlns:ns4="http://www.hello2morrow.com/sonargraph/languageprovider/java" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns4:xsdJavaModule" name="Microservices" id="8c04f0f36b6613c8af45e05ea1448230" language="Java">
+		<description></description>
+		<rootPath xsi:type="ns4:xsdSourceRootPath" name="../order/src/main/java"></rootPath>
+		<rootPath xsi:type="ns4:xsdSourceRootPath" name="../promotion/src/main/java"></rootPath>
+		<rootPath name="../promotion/target/classes"></rootPath>
+		<rootPath xsi:type="ns4:xsdSourceRootPath" name="../shop/src/main/java"></rootPath>
+		<rootPath name="../shop/target/classes"></rootPath>
+		<rootPath xsi:type="ns4:xsdSourceRootPath" name="../user/src/main/java"></rootPath>
+		<rootPath name="../user/target/classes"></rootPath>
+	</module>
+</ns2:softwareSystem>

@@ -1,0 +1,33 @@
+version: "3"
+
+
+services:
+  shopdb:
+    container_name: shopdb
+    image: mysql
+    restart: on-failure
+    volumes:
+      - /home/ARQSOFT/shop/db/:/var/lib/mysql
+    ports:
+      - "5001:3306"
+    environment:
+      - MYSQL_USER=admin
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - MYSQL_PASSWORD=@Dmin123
+      - MYSQL_DATABASE=shops
+    command: mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8
+  shopmicroservice:
+    container_name: shop_ms
+    image: gorgeous_sandwich:shop.0.0.1-SNAPSHOT
+    volumes:
+      - ./docker/shop/:/home/app
+    ports:
+      - "5000:8080"
+    depends_on:
+      - shopdb
+    environment:
+      - spring.datasource.url=jdbc:mysql://shopdb:3306/shops?autoreconnect=true&allowPublicKeyRetrieval=true&useSSL=false
+      - spring.datasource.username=admin
+      - spring.datasource.password=@Dmin123
+      - spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+      - logging.level.org.springframework.web=INFO

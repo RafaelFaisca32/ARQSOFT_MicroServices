@@ -1,0 +1,41 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+
+type Mutation{
+    createPromotion (
+        promotion: PromotionInput!
+    ) : GraphQLPromotionDTO
+}
+type Query{
+    listAllPromotions : [GraphQLPromotionDTO!]!,
+    listPromotion(id : ID!) : GraphQLPromotionDTO!
+    health: String!
+}
+
+
+input PromotionInput{
+    percentage: Float!
+    from: String!
+    to: String!
+    shopId: ID
+    promotionType: PromotionType!
+}
+
+enum PromotionType{
+    GLOBAL,
+    LOCAL
+}
+
+type GraphQLPromotionDTO {
+    id: ID!
+    percentage : Float!
+    from : String!
+    to : String!
+    shopId : ID
+    promotionType: PromotionType!
+}
+
+

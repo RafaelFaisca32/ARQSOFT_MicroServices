@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+left to right direction
+
+:User: as user
+:Non Registered User: as nonUser
+
+(UC1 - Create Sandwiches) as (UC1)
+(UC2 - List Sandwiches) as (UC2)
+(UC3 - Register Shop) as (UC3)
+(UC4 - List Shop) as (UC4)
+(UC5 - Register Order) as (UC5)
+(UC6 - List Order) as (UC6)
+(UC7 - Create Customer) as (UC7)
+(UC8 - List Customer) as (UC8)
+(UC9 - Create promotion) as (UC9)
+(UC10 - List promotion) as (UC10)
+(UC11 - Login) as (UC11)
+(UC12 - Define N minimum/maximum of deliveries	) as (UC12)
+(UC13 - List deliveries	) as (UC13)
+(UC14 - Register deliveries	) as (UC14)
+
+
+user --> (UC1)
+user --> (UC2)
+user --> (UC3)
+user --> (UC4)
+user --> (UC5)
+user --> (UC6)
+nonUser --> (UC7)
+user --> (UC8)
+user --> (UC9)
+user --> (UC10)
+nonUser --> (UC11)
+user --> (UC12)
+user --> (UC13)
+user --> (UC14)
+
+@enduml

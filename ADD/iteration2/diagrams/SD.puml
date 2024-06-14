@@ -1,0 +1,38 @@
+@startuml SD
+        hide footbox
+        autonumber
+
+        participant "<<component mdr>>\n<<controller>>\nUserController" as UC
+        participant "<<component mdr>>\n<<service>>UserService" as US
+        participant "<<component mdr>>\n<<mapper>>UserMapper" as UM
+        participant "<<component mdr>>\n<<domain>>\n us : User" as USER
+        participant "<<component mdr>>\n<<repository>>\n UserRepository" as REPO
+        participant "<<component mdr>>\n<<domain>>\n dto : CreatingUserDto" as DTO
+
+                [o-> UC : POST user/register User(email,password,taxIdentification,username)
+                activate UC
+                UC -> US : register(creatingUserDto)
+                activate US
+                US -> UM : toDomain(creatingUserDto)
+                activate UM
+                UM -> USER : create(CreatingUserDto.email,CreatingUserDto.password,CreatingUserDto.taxIdentification,CreatingUserDto.username)
+                activate USER
+                USER --> UM : us
+                deactivate USER
+                UM --> US : us
+                deactivate UM
+                US -> REPO : save(us)
+                activate REPO
+                REPO --> US : us
+                deactivate REPO
+                US -> UM : toCreateUserDTO(us.email,us.password,us.taxIdentification,us.username)
+                activate UM
+                UM -> DTO : create(us)
+                activate DTO
+                DTO --> UM : dto
+                deactivate DTO
+                UM --> US : dto
+                deactivate UM
+                US --> UC : dto
+                [o<-> UC : Response with status 200\nuser(JSON)
+@enduml

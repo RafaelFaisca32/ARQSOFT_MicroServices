@@ -1,0 +1,132 @@
+@startuml
+!function $days($index)
+    !if ($index==0)
+        !return "monday"
+    !elseif ($index==1)
+        !return "tuesday"
+    !elseif ($index==2)
+        !return "wednesday"
+    !elseif ($index==3)
+        !return "thursday"
+    !elseif ($index==4)
+        !return "friday"
+    !elseif ($index==5)
+        !return "saturday"
+    !else
+        !return "sunday"
+    !endif
+!endfunction
+
+!procedure $dayScheduleGen()
+    !$i=0
+    !while $i<7
+      Shop *----> "1"DaySchedule : $days($i)
+      !$i=$i+1
+    !endwhile
+!endprocedure
+
+hide methods
+hide fields
+
+rectangle Shared #aaaabb{
+    class Designation <<Value Object>>
+    class Address <<Value Object>>
+    class Name <<Value Object>>
+}
+
+rectangle Products #aabbff{
+    class Sandwich <<Entity Root>>
+    class SellingPrice <<Value Object>>
+    class Description  <<Value Object>>
+
+    Sandwich *--> "1"Designation : productDesignation
+    Sandwich *--> "1"SellingPrice : productSellingPrice
+    Sandwich *--> "1"Description : productDescription
+}
+
+rectangle Retail #bbaaff{
+    class Shop <<Entity Root>>
+    class DaySchedule <<Entity>>
+    class Hour <<Value Object>>
+    class Manager <<Entity>>
+
+
+    Shop *--> "1"Designation : designation
+    Shop *--> "1*"Delivery : has
+    Shop *--> "1"Address : address
+    $dayScheduleGen()
+    DaySchedule *-->"1"Hour: openHour
+    DaySchedule *-->"1"Hour: closeHour
+
+
+        Manager *-->"1"Name : name
+        Shop o----> "1"Manager : managingStore
+
+}
+
+rectangle Users #aaffbb{
+    class User <<Entity Root>>
+    class TaxIdentification <<Value Object>>
+    class Password<<Value Object>>
+    class Username<<Value Object>>
+    class Email <<Value Object>>
+
+    User *-->"1"TaxIdentification : taxIdentification
+    User *---up->"1"Address : address
+    User *-->"1"Username : username
+    User *-->"1"Password : password
+    User *-->"1"Email : email
+    Manager *-up->"1"User : authenticationInfo
+}
+
+rectangle Promotions #ffbbaa{
+    abstract Promotion <<Entity Root>>
+    class Percentage <<Value Object>>
+    class LocalPromotion <<Entity>> extends Promotion
+    class GlobalPromotion <<Entity>>
+    class TimeOfEffect <<Value Object>>
+
+
+    GlobalPromotion --|> Promotion
+    Promotion *-up->"1"Percentage : discount
+    Promotion *--->"1"TimeOfEffect : periodOfApplication
+    LocalPromotion o-->"1"Shop : shopOfEffect
+    Promotion o-->"1.*"Sandwich :productOfEffect
+}
+
+rectangle Order #ffaabb {
+    class ProductOrder<<Entity Root>>
+    class ProductEntry<<Entity>>
+    class Quantity<<Value Object>>
+    class TotalPrice<<Value Object>>
+    abstract PromotionStrategy<<Entity>>
+    class CumulativePromotion<<Entity>> extends PromotionStrategy
+    class MostFavourablePromotion<<Entity>> extends PromotionStrategy
+
+    ProductOrder o-left->"1"PromotionStrategy : promotionStrategy
+    ProductOrder o-->"1.*"ProductEntry : products
+    ProductOrder o-->"1"TotalPrice : has
+    ProductOrder o-->"1"Shop : made on one
+    ProductEntry *-->"1"Quantity : amountToOrder
+    ProductEntry *-->"1"Sandwich :productToOrder
+    ProductOrder o-->"*"Promotion :promotion
+}
+
+rectangle Delivery #ffaaff {
+    class Delivery<<Entity Root>>
+    class DeliveryState<<Value Object>>
+    class InitialTime<<Value Object>>
+    class FinalTime<<Value Object>>
+
+    ProductOrder o-left->"1"PromotionStrategy : promotionStrategy
+    Delivery o-->"1"DeliveryState : has one
+    Delivery o-->"1"InitialTime : has
+    Delivery o-->"1"FinalTime : has
+    Delivery o-->"1"ProductOrder : of an
+    ProductOrder o-->"1"Shop : made on one
+    ProductEntry *-->"1"Quantity : amountToOrder
+    ProductEntry *-->"1"Sandwich :productToOrder
+    ProductOrder o-->"*"Promotion :promotion
+}
+
+@enduml

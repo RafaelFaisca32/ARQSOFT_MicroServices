@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    contentStyleType="text/css" height="335px" preserveAspectRatio="none"
+    style="width:806px;height:335px;background:#FFFFFF;" version="1.1" viewBox="0 0 806 335"
+    width="806px" zoomAndPan="magnify">
+    <defs />
+    <g>
+        <rect fill="#FFFFFF" height="132.7578" style="stroke:#181818;stroke-width:1.0;" width="10"
+            x="357" y="121.5313" />
+        <rect fill="#FFFFFF" height="30.3516" style="stroke:#181818;stroke-width:1.0;" width="10"
+            x="716" y="168.2344" />
+        <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="362" x2="362"
+            y1="72.8281" y2="263.2891" />
+        <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="721" x2="721"
+            y1="72.8281" y2="263.2891" />
+        <rect fill="#E2E2F0" height="66.8281" rx="2.5" ry="2.5"
+            style="stroke:#181818;stroke-width:0.5;" width="130" x="297" y="5" />
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="102" x="311" y="26.5332">&lt;&lt;component&gt;&gt;</text>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="116" x="304" y="44.1426">&lt;&lt;C4:Container&gt;&gt;</text>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="98" x="313" y="61.752">Apollo Gateway</text>
+        <rect fill="#E2E2F0" height="66.8281" rx="2.5" ry="2.5"
+            style="stroke:#181818;stroke-width:0.5;" width="130" x="297" y="262.2891" />
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="102" x="311" y="283.8223">&lt;&lt;component&gt;&gt;</text>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="116" x="304" y="301.4316">&lt;&lt;C4:Container&gt;&gt;</text>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="98" x="313" y="319.041">Apollo Gateway</text>
+        <rect fill="#E2E2F0" height="66.8281" rx="2.5" ry="2.5"
+            style="stroke:#181818;stroke-width:0.5;" width="158" x="642" y="5" />
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="102" x="670" y="26.5332">&lt;&lt;component&gt;&gt;</text>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="116" x="663" y="44.1426">&lt;&lt;C4:Container&gt;&gt;</text>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="144" x="649" y="61.752">User Microservice (BE)</text>
+        <rect fill="#E2E2F0" height="66.8281" rx="2.5" ry="2.5"
+            style="stroke:#181818;stroke-width:0.5;" width="158" x="642" y="262.2891" />
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="102" x="670" y="283.8223">&lt;&lt;component&gt;&gt;</text>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="116" x="663" y="301.4316">&lt;&lt;C4:Container&gt;&gt;</text>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="144" x="649" y="319.041">User Microservice (BE)</text>
+        <rect fill="#FFFFFF" height="132.7578" style="stroke:#181818;stroke-width:1.0;" width="10"
+            x="357" y="121.5313" />
+        <rect fill="#FFFFFF" height="30.3516" style="stroke:#181818;stroke-width:1.0;" width="10"
+            x="716" y="168.2344" />
+        <ellipse cx="7.5" cy="120.7813" fill="none" rx="4" ry="4"
+            style="stroke:#181818;stroke-width:1.5;" />
+        <polygon fill="#181818" points="345,117.5313,355,121.5313,345,125.5313,349,121.5313"
+            style="stroke:#181818;stroke-width:1.0;" />
+        <line style="stroke:#181818;stroke-width:1.0;" x1="12" x2="351" y1="121.5313" y2="121.5313" />
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing"
+            textLength="32" x="15" y="100.3232">query</text>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing"
+            textLength="330" x="15" y="116.6748">
+            getAllUsers(id,emailpassword,taxIdentification,username)</text>
+        <polygon fill="#181818" points="704,164.2344,714,168.2344,704,172.2344,708,168.2344"
+            style="stroke:#181818;stroke-width:1.0;" />
+        <line style="stroke:#181818;stroke-width:1.0;" x1="367" x2="710" y1="168.2344" y2="168.2344" />
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing"
+            textLength="32" x="374" y="147.0264">query</text>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing"
+            textLength="330" x="374" y="163.3779">
+            getAllUsers(id,emailpassword,taxIdentification,username)</text>
+        <polygon fill="#181818" points="378,194.5859,368,198.5859,378,202.5859,374,198.5859"
+            style="stroke:#181818;stroke-width:1.0;" />
+        <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="372" x2="720"
+            y1="198.5859" y2="198.5859" />
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing"
+            textLength="46" x="384" y="193.7295">userList</text>
+        <ellipse cx="7.5" cy="244.5391" fill="none" rx="4" ry="4"
+            style="stroke:#181818;stroke-width:1.5;" />
+        <polygon fill="#181818" points="24.5,241.2891,14.5,245.2891,24.5,249.2891,20.5,245.2891"
+            style="stroke:#181818;stroke-width:1.0;" />
+        <line style="stroke:#181818;stroke-width:1.0;" x1="22.5" x2="356" y1="245.2891"
+            y2="245.2891" />
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing"
+            textLength="150" x="25" y="224.0811">Response with status 200</text>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing"
+            textLength="88" x="25" y="240.4326">userList(JSON)</text><!--MD5=[74f281b6d1644cfe597d3c2a01c4c834]
+        @startuml nivel2
+
+participant "<<component>>\n<<C4:Container>>\nApollo Gateway" as AG
+        participant "<<component>>\n<<C4:Container>>\nUser Microservice (BE)" as BE
+
+[o-> AG :
+        query\ngetAllUsers(id,emailpassword,taxIdentification,username)
+activate AG
+AG -> BE :
+        query\ngetAllUsers(id,emailpassword,taxIdentification,username)
+activate BE
+BE - -> AG :
+        userList
+deactivate BE
+[o<-> AG : Response with status 200 \nuserList(JSON)
+@enduml
+        PlantUML version 1.2022.7(Mon Aug 22 18:01:30 WEST 2022)
+(GPL source distribution)
+Java
+        Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default
+        Encoding: Cp1252
+Language: pt
+Country: PT
+-->
+    </g>
+</svg>

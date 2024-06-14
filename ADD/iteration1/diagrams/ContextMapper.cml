@@ -1,0 +1,105 @@
+
+ContextMap DDDSampleMap {
+	contains SandwichContext
+	contains UsersContext
+	contains ShopContext
+	contains DeliveryContext
+	contains OrderContext
+	contains PromotionsContext
+	OrderContext [D]<-[U] SandwichContext
+	OrderContext [D]<-[U] ShopContext
+	PromotionsContext [D]<-[U] SandwichContext
+	OrderContext [D]<-[U] PromotionsContext
+	PromotionsContext [D]<-[U] ShopContext
+	ShopContext [D]<-[U] UsersContext
+	ShopContext [D]<-[U] DeliveryContext
+	DeliveryContext [D]<-[U] OrderContext
+
+}
+
+
+BoundedContext SandwichContext {
+	Module sandwich {
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate Sandwich {
+			Entity Sandwich
+			ValueObject SellingPrice
+			ValueObject Description
+			ValueObject Designation
+		}
+	}
+
+}
+
+
+BoundedContext DeliveryContext {
+	Module Delivery {
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate Delivery {
+			Entity Delivery
+			ValueObject InitialTime
+			ValueObject FinalTime
+			enum State {
+	            STARTED, IN_PROGRESS, FINISHED
+			}
+
+		}
+	}
+}
+
+BoundedContext UsersContext {
+	Module User {
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate User {
+			Entity User
+			ValueObject TaxIdentification
+			ValueObject Password
+			ValueObject Username
+			ValueObject Email
+			ValueObject AddressUser
+		}
+	}
+}
+
+BoundedContext ShopContext {
+	Module shop {
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate Shop {
+			Entity Shop
+			ValueObject DaySchedule
+			ValueObject Hour
+			ValueObject Manager
+			ValueObject AddressShop
+			ValueObject DesignationShop
+		}
+	}
+}
+
+BoundedContext PromotionsContext {
+	Module promotions {
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate Promotion {
+			Entity Promotion
+			ValueObject TimeOfEffect
+			ValueObject Percentage
+		}
+	}
+}
+
+BoundedContext OrderContext {
+	Module order {
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate Order {
+			Entity Order
+			ValueObject ProductStrategy
+			ValueObject ProductEntry
+			ValueObject TotalPrice
+		}
+	}
+}
